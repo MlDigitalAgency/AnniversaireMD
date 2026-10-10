@@ -522,8 +522,8 @@
                 </div>
 
                 <div class="flex items-center justify-between pt-4 border-t border-gold-200/50">
-                    <span class="font-script text-2xl text-gold-700">Dareen </span>
-                    <button onclick="speakWish('Dareen ', 'Papa, tu es mon premier modèle d\'homme, de rigueur et d\'intégrité. Joyeux 60e anniversaire Papa !')" class="px-3.5 py-1.5 rounded-full bg-gold-50 hover:bg-gold-100 text-gold-800 text-xs font-semibold flex items-center space-x-2 border border-gold-300 transition-colors">
+                    <span class="font-script text-2xl text-gold-700">Désiré Jr.</span>
+                    <button onclick="speakWish('Désiré Jr.', 'Papa, tu es mon premier modèle d\'homme, de rigueur et d\'intégrité. Joyeux 60e anniversaire Papa !')" class="px-3.5 py-1.5 rounded-full bg-gold-50 hover:bg-gold-100 text-gold-800 text-xs font-semibold flex items-center space-x-2 border border-gold-300 transition-colors">
                         <i class="fa-solid fa-volume-high text-gold-600"></i>
                         <span>Écouter</span>
                     </button>
@@ -660,9 +660,9 @@
         </div>
     </div>
 
-    <!-- MUSIQUE LOCALE : placez le MP3 dans le dossier audio -->
+    <!-- MUSIQUE LOCALE : placez debout.mp3 dans le même dossier que ce HTML -->
     <audio id="birthday-music" loop preload="auto">
-        <source src="audio/anniversaire.mp3" type="audio/mpeg">
+        <source src="debout.mp3" type="audio/mpeg">
         Votre navigateur ne prend pas en charge la lecture audio.
     </audio>
 
@@ -734,8 +734,8 @@
                 } catch (error) {
                     isPlayingAudio = false;
                     if (statusText) statusText.innerText = 'Réessayer de lancer la musique';
-                    showToast('Lecture impossible', 'Vérifiez que audio/anniversaire.mp3 existe et est lisible.');
-                    console.error('Impossible de lire audio/anniversaire.mp3 :', error);
+                    showToast('Lecture impossible', 'Vérifiez que debout.mp3 se trouve dans le même dossier que ce fichier HTML et est lisible.');
+                    console.error('Impossible de lire debout.mp3 :', error);
                 }
             } else {
                 music.pause();
@@ -756,7 +756,7 @@
                 isPlayingAudio = false;
             });
             music.addEventListener('error', () => {
-                console.error('Le fichier audio/anniversaire.mp3 n’a pas pu être chargé.');
+                console.error('Le fichier debout.mp3 n’a pas pu être chargé.');
             });
         });
 
