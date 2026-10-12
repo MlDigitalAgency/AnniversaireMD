@@ -340,8 +340,6 @@
 
         @media (max-width: 640px) {
             .site-header { width: calc(100% - 20px); height: 54px; padding: 5px 10px; }
-            .site-nav-links { gap: 12px; }
-            .site-nav-link { font-size: 9px; }
             .cover-medallion { padding: 2.5rem 1.5rem; }
         }
     </style>
@@ -375,22 +373,45 @@
         </div>
     </div>
 
-    <!-- HEADER NAVIGATION -->
+    <!-- HEADER NAVIGATION AVEC MENU BURGER MOBILE -->
     <header class="site-header">
         <a href="#hero" class="site-brand">
             <span class="site-brand-mark">60</span>
             <span class="site-brand-label">Michel Desire</span>
         </a>
-        <nav class="site-nav-links">
+
+        <!-- Liens Desktop -->
+        <nav class="hidden md:flex site-nav-links">
             <a href="#hero" class="site-nav-link is-active">Accueil</a>
             <a href="#parcours" class="site-nav-link">Le parcours</a>
             <a href="#galerie" class="site-nav-link">Souvenirs</a>
             <a href="#voeux-famille" class="site-nav-link">Vœux de la famille</a>
             <a href="#gateau-section" class="site-nav-link">Le gâteau</a>
         </nav>
-        <button onclick="triggerConfetti()" class="hidden sm:inline-flex items-center px-4 py-2 rounded-full gold-gradient-bg text-[#4D3728] text-xs font-bold shadow-sm hover:brightness-105 transition-all cursor-pointer">
-            Célébrer
-        </button>
+
+        <div class="flex items-center space-x-2">
+            <!-- Bouton Célébrer -->
+            <button onclick="triggerConfetti()" class="hidden sm:inline-flex items-center px-4 py-2 rounded-full gold-gradient-bg text-[#4D3728] text-xs font-bold shadow-sm hover:brightness-105 transition-all cursor-pointer">
+                Célébrer
+            </button>
+
+            <!-- Bouton Menu Burger Mobile -->
+            <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden w-9 h-9 rounded-full gold-gradient-bg text-charcoal flex items-center justify-center shadow focus:outline-none cursor-pointer" aria-label="Menu">
+                <i id="burger-icon" class="fa-solid fa-bars text-sm"></i>
+            </button>
+        </div>
+
+        <!-- Menu Déroulant Mobile -->
+        <div id="mobile-dropdown" class="hidden absolute top-16 left-0 right-0 bg-[#F8F4EE]/95 backdrop-blur-md border border-[#C9A64B]/40 rounded-2xl shadow-2xl p-4 flex flex-col space-y-3 z-50">
+            <a href="#hero" onclick="toggleMobileMenu()" class="text-[#4D3728] font-semibold text-xs py-2 px-3 rounded-lg hover:bg-[#C9A64B]/10 transition-colors">Accueil</a>
+            <a href="#parcours" onclick="toggleMobileMenu()" class="text-[#4D3728] font-semibold text-xs py-2 px-3 rounded-lg hover:bg-[#C9A64B]/10 transition-colors">Le parcours</a>
+            <a href="#galerie" onclick="toggleMobileMenu()" class="text-[#4D3728] font-semibold text-xs py-2 px-3 rounded-lg hover:bg-[#C9A64B]/10 transition-colors">Souvenirs</a>
+            <a href="#voeux-famille" onclick="toggleMobileMenu()" class="text-[#4D3728] font-semibold text-xs py-2 px-3 rounded-lg hover:bg-[#C9A64B]/10 transition-colors">Vœux de la famille</a>
+            <a href="#gateau-section" onclick="toggleMobileMenu()" class="text-[#4D3728] font-semibold text-xs py-2 px-3 rounded-lg hover:bg-[#C9A64B]/10 transition-colors">Le gâteau</a>
+            <button onclick="triggerConfetti(); toggleMobileMenu();" class="w-full text-center py-2.5 rounded-full gold-gradient-bg text-[#4D3728] font-bold text-xs shadow-sm mt-2">
+                🎉 Célébrer
+            </button>
+        </div>
     </header>
 
     <!-- FLOATING AUDIO PLAYER (debout.mp3) -->
@@ -693,12 +714,12 @@
                         </div>
                     </div>
                     <div class="relative bg-white/70 p-5 rounded-2xl border border-gold-100 mb-6 italic font-garamond text-lg text-gray-700 leading-relaxed">
-                        « Papa, merci de m'avoir appris qu'avec la rigueur et le travail  aucun sommet n'est inatteignable. Joyeux anniversaire Papa ! »
+                        « Papa, merci de m'avoir appris qu'avec la rigueur et de le travail, aucun sommet n'est inatteignable. Joyeux anniversaire Papa ! »
                     </div>
                 </div>
                 <div class="flex items-center justify-between pt-4 border-t border-gold-200/50">
                     <span class="font-script text-2xl text-gold-700">Dareen</span>
-                    <button onclick="speakWish('Dareen', 'Papa, merci de m\'avoir appris qu\'avec la rigueur et le travail, aucun sommet n\'est inatteignable. Joyeux anniversaire Papa !')" class="px-3.5 py-1.5 rounded-full bg-gold-50 hover:bg-gold-100 text-gold-800 text-xs font-semibold flex items-center space-x-2 border border-gold-300 transition-colors cursor-pointer">
+                    <button onclick="speakWish('Dareen', 'Papa, merci de m\'avoir appris qu\'avec la rigueur et de l\'honneur, aucun sommet n\'est inatteignable. Joyeux anniversaire Papa !')" class="px-3.5 py-1.5 rounded-full bg-gold-50 hover:bg-gold-100 text-gold-800 text-xs font-semibold flex items-center space-x-2 border border-gold-300 transition-colors cursor-pointer">
                         <i class="fa-solid fa-volume-high text-gold-600"></i>
                         <span>Écouter</span>
                     </button>
@@ -718,7 +739,7 @@
                         </div>
                     </div>
                     <div class="relative bg-white/70 p-5 rounded-2xl border border-gold-100 mb-6 italic font-garamond text-lg text-gray-700 leading-relaxed">
-                        « Mon cher Papa, ta rigueur et ton soutien indéfectible sont les plus beaux cadeaux de ma vie. Pour tes 60 ans, je te souhaite toute la santé du monde ! »
+                        « Papa, ta rigueur et ton soutien indéfectible sont les plus beaux cadeaux de ma vie. Pour tes 60 ans, je te souhaite toute la santé du monde ! »
                     </div>
                 </div>
                 <div class="flex items-center justify-between pt-4 border-t border-gold-200/50">
@@ -739,7 +760,7 @@
                         </div>
                         <div class="text-center sm:text-left pt-2">
                             <h3 class="font-serif text-2xl font-bold text-charcoal">Vanina Kanga</h3>
-                            <p class="text-xs text-gold-600 font-semibold tracking-wider uppercase mt-1">Deuxième Fille</p>
+                            <p class="text-xs text-gold-600 font-semibold tracking-wider uppercase mt-1">Première Fille</p>
                         </div>
                     </div>
                     <div class="relative bg-white/70 p-5 rounded-2xl border border-gold-100 mb-6 italic font-garamond text-lg text-gray-700 leading-relaxed">
@@ -833,9 +854,9 @@
                 </div>
 
                 <div id="final-message" class="hidden mt-8 p-6 rounded-2xl bg-white/90 border border-[#C9A64B] text-center animate-pulse-glow">
-                    <h3 class="font-serif text-2xl font-bold text-[#4D3728] mb-2">🎉 Joyeux 60e Anniversaire Michel ! 🎉</h3>
+                    <h3 class="font-serif text-2xl font-bold text-[#4D3728] mb-2"> Joyeux 60e Anniversaire </h3>
                     <p class="font-garamond text-lg text-gray-700 italic">
-                        Que cette nouvelle décennie vous apporte une santé de fer, un bonheur infini, la paix et de très belles années à venir entouré de votre merveilleuse famille.
+                        Que cette nouvelle décennie t'apporte une santé de fer, un bonheur infini, la paix et de très belles années à venir entouré de ta  merveilleuse famille.
                     </p>
                 </div>
             </div>
@@ -846,7 +867,6 @@
     <footer class="bg-charcoal text-white py-10 px-4 border-t border-gold-500/30">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
             <div>
-                <p class="font-serif text-lg text-gold-400">Kanga Michel Desire — 60 Ans</p>
                 <p class="text-xs text-gray-400 mt-1">&copy; 2026 Tous droits réservés.</p>
             </div>
             <div class="text-xs text-gray-400 text-center md:text-right">
@@ -886,6 +906,22 @@
             }
 
             setTimeout(() => { triggerConfetti(); }, 600);
+        }
+
+        function toggleMobileMenu() {
+            const dropdown = document.getElementById('mobile-dropdown');
+            const burgerIcon = document.getElementById('burger-icon');
+            
+            if (dropdown) {
+                dropdown.classList.toggle('hidden');
+                if (burgerIcon) {
+                    if (dropdown.classList.contains('hidden')) {
+                        burgerIcon.className = "fa-solid fa-bars text-sm";
+                    } else {
+                        burgerIcon.className = "fa-solid fa-xmark text-sm";
+                    }
+                }
+            }
         }
 
         let isPlaying = false;
