@@ -1,347 +1,147 @@
 <!DOCTYPE html>
-
 <html lang="fr" class="scroll-smooth">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Joyeux 60e Anniversaire - Kanga Michel Desire</title>
 
-
-
     <!-- Tailwind CSS CDN -->
-
     <script src="https://cdn.tailwindcss.com"></script>
 
-
-
     <!-- Canvas Confetti CDN -->
-
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
-
-
     <!-- Font Awesome Icons -->
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-
-
     <!-- Google Fonts -->
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
 
-
-
     <script>
-
         tailwind.config = {
-
             theme: {
-
                 extend: {
-
                     colors: {
-
                         gold: {
-
                             50: '#FFFDF0',
-
                             100: '#FDF6D3',
-
                             200: '#F7E79B',
-
                             300: '#EECE5A',
-
                             400: '#E5B82C',
-
-                            500: '#D4AF37', // Gold principal
-
+                            500: '#C9A64B',
                             600: '#B8860B',
-
                             700: '#916708',
-
                             800: '#6E4D09',
-
                             900: '#4A3306',
-
                         },
-
-                        cream: '#FAF8F5',
-
+                        cream: '#F8F4EE',
+                        brownSoft: '#8A6848',
+                        brownDeep: '#4D3728',
                         charcoal: '#1A1A1A',
-
                         slateDark: '#2D2D2D'
-
                     },
-
                     fontFamily: {
-
                         serif: ['Playfair Display', 'serif'],
-
                         garamond: ['Cormorant Garamond', 'serif'],
-
                         sans: ['Montserrat', 'sans-serif'],
-
                         script: ['Alex Brush', 'cursive']
-
                     }
-
                 }
-
             }
-
         }
-
     </script>
 
-
-
     <style>
-
-        /* Modern Luxe Scrollbar */
-
-        ::-webkit-scrollbar {
-
-            width: 8px;
-
-        }
-
-        ::-webkit-scrollbar-track {
-
-            background: #FAF8F5;
-
-        }
-
-        ::-webkit-scrollbar-thumb {
-
-            background: linear-gradient(180deg, #D4AF37 0%, #B8860B 100%);
-
-            border-radius: 4px;
-
-        }
-
-
-
-        /* Metallic Gold Gradients */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #F8F4EE; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #C9A64B 0%, #8A6848 100%); border-radius: 4px; }
 
         .gold-gradient-text {
-
-            background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
-
+            background: linear-gradient(135deg, #8A6848 0%, #C9A64B 40%, #F7E79B 70%, #8A6848 100%);
             -webkit-background-clip: text;
-
             -webkit-text-fill-color: transparent;
-
         }
-
-
-
         .gold-gradient-bg {
-
-            background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 35%, #B38728 70%, #AA771C 100%);
-
+            background: linear-gradient(135deg, #8A6848 0%, #C9A64B 50%, #E5B82C 100%);
         }
-
-
-
-        /* Glassmorphism Luxe */
 
         .glass-card {
-
-            background: rgba(255, 255, 255, 0.88);
-
+            background: rgba(248, 244, 238, 0.92);
             backdrop-filter: blur(12px);
-
             -webkit-backdrop-filter: blur(12px);
-
-            border: 1px solid rgba(212, 175, 55, 0.25);
-
-            box-shadow: 0 15px 35px -5px rgba(184, 134, 11, 0.08), 0 5px 15px rgba(0, 0, 0, 0.03);
-
+            border: 1px solid rgba(201, 166, 75, 0.3);
+            box-shadow: 0 15px 35px -5px rgba(77, 55, 40, 0.08), 0 5px 15px rgba(0, 0, 0, 0.03);
         }
 
-
-
-        /* Carousel Hide Scrollbar */
-
-        .no-scrollbar::-webkit-scrollbar {
-
-            display: none;
-
-        }
-
-        .no-scrollbar {
-
-            -ms-overflow-style: none;
-
-            scrollbar-width: none;
-
-        }
-
-
-
-        /* Animations */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
         @keyframes floatSlow {
-
             0%, 100% { transform: translateY(0px) rotate(0deg); }
-
-            50% { transform: translateY(-10px) rotate(1deg); }
-
+            50% { transform: translateY(-10px) rotate(0.5deg); }
         }
-
-        .animate-float {
-
-            animation: floatSlow 6s ease-in-out infinite;
-
-        }
-
-
+        .animate-float { animation: floatSlow 6s ease-in-out infinite; }
 
         @keyframes pulseGlow {
-
-            0%, 100% { opacity: 0.4; transform: scale(1); }
-
-            50% { opacity: 0.8; transform: scale(1.05); }
-
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.04); }
         }
-
-        .animate-pulse-glow {
-
-            animation: pulseGlow 4s ease-in-out infinite;
-
-        }
-
-
-
-        /* Equalizer Bars in Floating Micro Button */
+        .animate-pulse-glow { animation: pulseGlow 4s ease-in-out infinite; }
 
         .micro-bar {
-
             width: 2px;
-
-            background: #D4AF37;
-
+            background: #C9A64B;
             border-radius: 2px;
-
             animation: miniBounce 1s ease-in-out infinite alternate;
-
         }
-
         .micro-bar:nth-child(1) { animation-delay: 0.1s; height: 8px; }
-
         .micro-bar:nth-child(2) { animation-delay: 0.3s; height: 14px; }
-
         .micro-bar:nth-child(3) { animation-delay: 0.2s; height: 10px; }
-
-
-
         @keyframes miniBounce {
-
             0% { transform: scaleY(0.4); }
-
             100% { transform: scaleY(1.1); }
-
         }
-
-        .paused .micro-bar {
-
-            animation-play-state: paused;
-
-            height: 4px !important;
-
-        }
-
-
-
-        /* COVER / ENVELOPE STYLES */
+        .paused .micro-bar { animation-play-state: paused; height: 4px !important; }
 
         #welcome-cover {
-
             position: fixed;
-
             inset: 0;
-
             z-index: 9999;
-
-            background-color: #FAF8F5;
-
-            background-image: radial-gradient(#E5B82C 0.5px, transparent 0.5px), radial-gradient(#E5B82C 0.5px, #FAF8F5 0.5px);
-
-            background-size: 20px 20px;
-
-            background-position: 0 0, 10px 10px;
-
+            background-color: #F8F4EE;
+            background-image: radial-gradient(#C9A64B 0.6px, transparent 0.6px), radial-gradient(#C9A64B 0.6px, #F8F4EE 0.6px);
+            background-size: 24px 24px;
+            background-position: 0 0, 12px 12px;
             display: flex;
-
             align-items: center;
-
             justify-content: center;
-
             transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-
         }
-
-
-
         #welcome-cover.opened {
-
             opacity: 0;
-
-            transform: scale(1.1);
-
+            transform: scale(1.08);
             pointer-events: none;
-
         }
-
-
-
         .cover-medallion {
-
-            background: #FFFDF0;
-
-            border: 2px solid #D4AF37;
-
-            box-shadow: 0 0 0 8px rgba(255, 253, 240, 0.8), 0 0 0 10px #D4AF37, 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-
-            border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
-
-            padding: 4rem 6rem;
-
+            background: #FFFFFF;
+            border: 2px solid #C9A64B;
+            box-shadow: 0 0 0 10px rgba(248, 244, 238, 0.9), 0 0 0 12px #C9A64B, 0 25px 50px -12px rgba(77, 55, 40, 0.2);
+            border-radius: 24px;
+            padding: 3.5rem 5rem;
             text-align: center;
-
             position: relative;
-
             max-width: 90%;
-
         }
+        body.cover-active { overflow: hidden; }
 
-
-
-        body.cover-active {
-
-            overflow: hidden;
-
-        }
-
-    
-
-        /* HEADER : capsule, liseré doré et proportions de la maquette */
         .site-header {
             position: fixed;
             top: 17px;
             left: 50%;
             transform: translateX(-50%);
-            width: calc(100% - 50px);
-            max-width: 1200px;
+            width: calc(100% - 40px);
+            max-width: 1100px;
             height: 60px;
             box-sizing: border-box;
             z-index: 1000;
@@ -349,868 +149,507 @@
             align-items: center;
             justify-content: space-between;
             gap: 16px;
-            padding: 7px 12px;
-            background: rgba(255, 255, 255, 0.97);
-            border: 1px solid rgba(196, 155, 65, 0.34);
+            padding: 7px 16px;
+            background: rgba(248, 244, 238, 0.95);
+            border: 1px solid rgba(201, 166, 75, 0.4);
             border-radius: 999px;
-            box-shadow: 0 7px 22px rgba(112, 83, 23, 0.075);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
+            box-shadow: 0 8px 25px rgba(77, 55, 40, 0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
         }
-
         .site-brand {
             display: inline-flex;
             align-items: center;
-            gap: 9px;
-            min-width: max-content;
+            gap: 10px;
             text-decoration: none;
         }
-
         .site-brand-mark {
-            position: relative;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            flex: 0 0 42px;
-            width: 42px;
-            height: 42px;
-            box-sizing: border-box;
-            border: 1px solid #d5ad53;
+            width: 40px;
+            height: 40px;
+            border: 1px solid #C9A64B;
             border-radius: 50%;
-            background: linear-gradient(140deg, #f9e8a1 0%, #d4a331 36%, #f4d778 62%, #b98215 100%);
-            color: #241a06;
+            background: linear-gradient(135deg, #8A6848 0%, #C9A64B 100%);
+            color: #FFFFFF;
             font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 700;
-            letter-spacing: -0.8px;
-            box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.94), 0 1px 3px rgba(91, 65, 11, 0.12);
         }
-
-        .site-brand-mark::after {
-            content: '';
-            position: absolute;
-            inset: 4px;
-            border: 1px solid rgba(255, 249, 225, 0.82);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
         .site-brand-label {
-            color: #936b1a;
+            color: #4D3728;
             font-family: 'Montserrat', sans-serif;
-            font-size: 7px;
+            font-size: 9px;
             font-weight: 700;
             letter-spacing: 2px;
-            line-height: 1;
-            white-space: nowrap;
+            text-transform: uppercase;
         }
-
         .site-nav-links {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 26px;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 0 18px;
+            gap: 24px;
         }
-
         .site-nav-link {
-            position: relative;
-            display: inline-flex;
-            align-items: center;
-            height: 34px;
-            color: #191713;
+            color: #4D3728;
             font-family: 'Montserrat', sans-serif;
-            font-size: 10.5px;
-            font-weight: 500;
+            font-size: 11px;
+            font-weight: 600;
             text-decoration: none;
-            white-space: nowrap;
-            transition: color 180ms ease;
+            transition: color 0.2s ease;
+            position: relative;
+            padding-bottom: 2px;
         }
-
-        .site-nav-link:hover,
-        .site-nav-link.is-active {
-            color: #17140e;
+        .site-nav-link:hover, .site-nav-link.is-active {
+            color: #8A6848;
         }
-
         .site-nav-link.is-active::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -2px;
             left: 0;
             width: 100%;
-            height: 1.5px;
-            background: linear-gradient(90deg, #bd8c24, #e8c96f);
+            height: 2px;
+            background: #C9A64B;
             border-radius: 2px;
         }
 
-        .site-celebrate {
-            display: inline-flex;
+        /* GÂTEAU CSS INTERACTIF */
+        .cake-container {
+            position: relative;
+            width: 280px;
+            height: 320px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            flex: 0 0 auto;
-            min-width: 86px;
-            height: 34px;
-            padding: 0 19px;
-            border: 0;
-            border-radius: 999px;
-            background: linear-gradient(110deg, #f6df91 0%, #edce65 48%, #c99422 100%);
-            color: #2d2107;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 0.25px;
-            white-space: nowrap;
-            box-shadow: 0 5px 13px rgba(176, 126, 16, 0.22);
-            cursor: pointer;
-            transition: transform 180ms ease, filter 180ms ease, box-shadow 180ms ease;
+            justify-content: flex-end;
         }
+        .cake-plate {
+            width: 320px;
+            height: 18px;
+            background: #E5E7EB;
+            border-radius: 50%;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+            border: 2px solid #D1D5DB;
+        }
+        .cake-tier-bottom {
+            width: 240px;
+            height: 110px;
+            background: linear-gradient(90deg, #FDFCF9, #F3ECE1);
+            border: 2px solid #C9A64B;
+            border-bottom: none;
+            border-radius: 12px 12px 0 0;
+            position: relative;
+            box-shadow: inset 0 10px 20px rgba(0,0,0,0.03);
+            transition: transform 0.8s ease;
+        }
+        .cake-tier-top {
+            width: 160px;
+            height: 90px;
+            background: linear-gradient(90deg, #FFFFFF, #F8F4EE);
+            border: 2px solid #C9A64B;
+            border-bottom: none;
+            border-radius: 10px 10px 0 0;
+            position: relative;
+            box-shadow: inset 0 8px 15px rgba(0,0,0,0.02);
+            transition: transform 0.8s ease;
+        }
+        .frosting-drip {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 16px;
+            background: #C9A64B;
+            border-radius: 6px 6px 4px 4px;
+            opacity: 0.85;
+        }
+        .candles-row {
+            position: absolute;
+            top: -45px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-around;
+            padding: 0 15px;
+        }
+        .candle {
+            width: 10px;
+            height: 45px;
+            background: linear-gradient(90deg, #D4AF37, #FFFDF0, #D4AF37);
+            border-radius: 3px;
+            position: relative;
+        }
+        .flame {
+            width: 12px;
+            height: 18px;
+            background: radial-gradient(circle, #FDE047 0%, #F97316 70%, rgba(249,115,22,0) 100%);
+            border-radius: 50% 50% 35% 35%;
+            position: absolute;
+            top: -20px;
+            left: -1px;
+            animation: flicker 0.6s infinite alternate;
+            transform-origin: bottom center;
+            box-shadow: 0 0 10px #F59E0B;
+            transition: all 0.5s ease;
+        }
+        .flame.extinguished {
+            transform: scale(0);
+            opacity: 0;
+            box-shadow: none;
+        }
+        .smoke {
+            position: absolute;
+            top: -30px;
+            left: 2px;
+            width: 6px;
+            height: 20px;
+            background: rgba(200,200,200,0);
+            border-radius: 50%;
+            transition: all 1s ease;
+        }
+        .smoke.active {
+            background: rgba(180,180,180,0.6);
+            transform: translateY(-25px) scale(1.8);
+            filter: blur(4px);
+        }
+        @keyframes flicker {
+            0% { transform: scale(1) rotate(-3deg); }
+            100% { transform: scale(1.1) rotate(3deg); }
+        }
+        #cake-knife {
+            position: absolute;
+            top: -80px;
+            right: -60px;
+            font-size: 2.5rem;
+            color: #4D3728;
+            transform: rotate(-45deg);
+            transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            pointer-events: none;
+        }
+        #cake-knife.cutting {
+            opacity: 1;
+            top: 40px;
+            right: 70px;
+            transform: rotate(-15deg);
+        }
+        .cake-cut-left { transform: translateX(-12px) rotate(-2deg); }
+        .cake-cut-right { transform: translateX(12px) rotate(2deg); }
 
-        .site-celebrate:hover {
-            filter: brightness(1.035);
-            box-shadow: 0 6px 16px rgba(176, 126, 16, 0.28);
-        }
-
-        .site-celebrate:active {
-            transform: scale(0.97);
-        }
-
-        @media (max-width: 760px) {
-            .site-header {
-                top: 10px;
-                width: calc(100% - 24px);
-                height: 56px;
-                padding: 6px 9px;
-                gap: 8px;
-            }
-
-            .site-brand { gap: 6px; }
-            .site-brand-mark { flex-basis: 38px; width: 38px; height: 38px; font-size: 15px; }
-            .site-brand-label { font-size: 6px; letter-spacing: 1px; }
-            .site-nav-links { gap: 12px; padding: 0 6px; }
-            .site-nav-link { font-size: 9px; }
-            .site-celebrate { min-width: 72px; height: 32px; padding: 0 12px; font-size: 9px; }
-        }
-
-        @media (max-width: 540px) {
-            .site-header { width: calc(100% - 20px); padding: 6px 8px; gap: 5px; }
-            .site-brand-label { display: none; }
-            .site-nav-links { gap: clamp(7px, 2.2vw, 12px); padding: 0 2px; }
-            .site-nav-link { font-size: clamp(8px, 2.1vw, 9px); }
-            .site-celebrate { min-width: 64px; padding: 0 9px; font-size: 8.5px; }
-        }
-
-    
-
-        /* RESPONSIVE GLOBAL : mobile Android/iPhone, tablette et ordinateur */
-        *, *::before, *::after { box-sizing: border-box; }
-        html { scroll-padding-top: 100px; }
-        body { min-width: 320px; }
-        img { max-width: 100%; }
-        #hero, #parcours, #galerie, #voeux-famille { scroll-margin-top: 100px; }
-        #hero > div.absolute {
-            width: min(500px, 110vw);
-            height: min(500px, 110vw);
-        }
-        #gallery-carousel {
-            width: 100%;
-            min-width: 0;
-            overscroll-behavior-x: contain;
-            -webkit-overflow-scrolling: touch;
-        }
-        #gallery-carousel > .flex-none {
-            width: min(82vw, 320px);
-            min-width: 0;
-        }
-        #gallery-carousel > .flex-none > .relative.h-72 {
-            height: clamp(180px, 62vw, 288px);
-        }
-        #gallery-carousel img {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        #hero img, #voeux-famille img {
-            max-width: 100%;
-            object-fit: cover;
-        }
-        #voeux-famille .grid > div { min-width: 0; }
-        button, a { -webkit-tap-highlight-color: transparent; }
-        button { touch-action: manipulation; }
-
-        /* Le médaillon de couverture ne doit jamais déborder sur téléphone. */
         @media (max-width: 640px) {
-            .cover-medallion {
-                width: calc(100vw - 32px);
-                max-width: calc(100vw - 32px);
-                padding: clamp(38px, 10vw, 56px) clamp(18px, 5vw, 30px);
-                box-sizing: border-box;
-            }
-            .cover-medallion h1 {
-                font-size: clamp(2.35rem, 11vw, 4rem);
-                line-height: 1.08;
-                margin-bottom: 1rem;
-            }
-            .cover-medallion > .absolute {
-                top: -1.35rem;
-                font-size: clamp(2rem, 8vw, 3rem);
-            }
-            .cover-medallion button { max-width: 100%; }
-            .cover-medallion button span {
-                font-size: clamp(0.62rem, 2.7vw, 0.85rem);
-                letter-spacing: 0.12em;
-            }
+            .site-header { width: calc(100% - 20px); height: 54px; padding: 5px 10px; }
+            .site-nav-links { gap: 12px; }
+            .site-nav-link { font-size: 9px; }
+            .cover-medallion { padding: 2.5rem 1.5rem; }
         }
-
-        /* Header capsule: conserve la maquette desktop tout en s'adaptant au tactile. */
-        @media (max-width: 760px) {
-            .site-header {
-                top: 10px;
-                left: 12px;
-                transform: none;
-                width: calc(100% - 24px);
-                max-width: none;
-                height: 56px;
-                padding: 5px 8px;
-                gap: 7px;
-            }
-            .site-nav-links {
-                gap: clamp(7px, 1.8vw, 13px);
-                padding: 0 4px;
-            }
-            .site-nav-link { font-size: clamp(8px, 1.35vw, 10px); }
-            .site-celebrate { min-width: 68px; padding: 0 10px; }
-        }
-        @media (max-width: 540px) {
-            .site-header {
-                top: 8px;
-                left: 8px;
-                width: calc(100% - 16px);
-                height: 52px;
-                padding: 5px 7px;
-                gap: 5px;
-            }
-            .site-brand { gap: 0; flex: 0 0 auto; }
-            .site-brand-label { display: none; }
-            .site-brand-mark {
-                flex-basis: 34px;
-                width: 34px;
-                height: 34px;
-                font-size: 13px;
-            }
-            .site-nav-links {
-                flex: 1 1 auto;
-                min-width: 0;
-                margin: 0;
-                gap: clamp(5px, 1.7vw, 9px);
-                padding: 0 2px;
-            }
-            .site-nav-link {
-                height: 30px;
-                font-size: clamp(7.5px, 2.05vw, 9px);
-                letter-spacing: -0.12px;
-            }
-            .site-celebrate {
-                min-width: 59px;
-                height: 30px;
-                padding: 0 8px;
-                font-size: 8px;
-            }
-            #hero { padding-top: 6.5rem; }
-            #audio-widget { right: 14px; bottom: 14px; }
-            #play-pause-btn { width: 44px; height: 44px; }
-        }
-        @media (max-width: 360px) {
-            .site-header { left: 6px; width: calc(100% - 12px); gap: 3px; padding-left: 5px; padding-right: 5px; }
-            .site-brand-mark { flex-basis: 30px; width: 30px; height: 30px; font-size: 12px; }
-            .site-nav-links { gap: 4px; padding: 0 1px; }
-            .site-nav-link { font-size: 7px; letter-spacing: -0.18px; }
-            .site-celebrate { min-width: 53px; padding: 0 6px; font-size: 7.5px; }
-            #gallery-carousel > .flex-none { width: min(84vw, 300px); }
-        }
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                scroll-behavior: auto !important;
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-
     </style>
-
 </head>
 
+<body class="bg-[#F8F4EE] text-charcoal font-sans antialiased overflow-x-hidden cover-active">
 
-
-<body class="bg-[#FAF8F5] text-charcoal font-sans antialiased overflow-x-hidden selection:bg-gold-200 selection:text-gold-900 cover-active">
-
-
-
-    <!-- 1. ENVELOPE / CARD COVER -->
-
+    <!-- 1. OUVERTURE DE L'ENVELOPE (COVER) -->
     <div id="welcome-cover">
-
         <div class="cover-medallion animate-float flex flex-col items-center justify-center">
-
-            <div class="absolute -top-10 text-gold-500 text-6xl drop-shadow-md">
-
+            <div class="absolute -top-6 text-[#C9A64B] text-5xl drop-shadow">
                 <i class="fa-solid fa-ribbon"></i>
-
             </div>
-
-
-
-            <h1 class="font-script text-6xl md:text-8xl text-gold-600 mb-6 drop-shadow-sm leading-tight">
-
-                Joyeux <br>Anniversaire
-
+            
+            <h1 class="font-serif text-4xl sm:text-6xl font-bold text-[#4D3728] mb-4">
+                Kanga Michel Desire
             </h1>
-
-
-
-            <div class="flex items-center space-x-4 mb-8 w-full justify-center">
-
-                <div class="h-[1px] w-12 bg-gold-400"></div>
-
-                <i class="fa-solid fa-heart text-gold-400 text-sm"></i>
-
-                <div class="h-[1px] w-12 bg-gold-400"></div>
-
+            <div class="font-script text-3xl sm:text-4xl gold-gradient-text mb-6">
+                Joyeux 60e Anniversaire
             </div>
-
-
-
-            <button onclick="openCard()" class="group relative px-8 py-3 bg-transparent overflow-hidden rounded-full border border-gold-500 transition-all hover:border-gold-600">
-
-                <div class="absolute inset-0 w-0 bg-gold-100 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
-
-                <span class="relative text-gold-700 font-serif font-bold tracking-[0.2em] text-sm uppercase group-hover:text-gold-900">
-
+            <div class="flex items-center space-x-3 mb-8 w-full justify-center">
+                <div class="h-[1px] w-10 bg-[#C9A64B]"></div>
+                <i class="fa-solid fa-heart text-[#C9A64B] text-xs"></i>
+                <div class="h-[1px] w-10 bg-[#C9A64B]"></div>
+            </div>
+            <button onclick="openCard()" class="group relative px-8 py-3.5 bg-transparent overflow-hidden rounded-full border border-[#C9A64B] transition-all hover:bg-[#C9A64B]/10 cursor-pointer">
+                <span class="relative text-[#4D3728] font-serif font-bold tracking-[0.2em] text-xs uppercase group-hover:text-[#8A6848]">
                     Cliquer pour découvrir
-
                 </span>
-
             </button>
-
         </div>
-
     </div>
 
-
-
-    <!-- HEADER PRINCIPAL : capsule blanche et dorée, fidèle à la maquette -->
-    <nav class="site-header" aria-label="Navigation principale">
-        <a href="#hero" class="site-brand" aria-label="Retour à l'accueil">
-            <span class="site-brand-mark">MD</span>
-            <span class="site-brand-label">CARTE D'ANNIVERSAIRE</span>
+    <!-- HEADER NAVIGATION -->
+    <header class="site-header">
+        <a href="#hero" class="site-brand">
+            <span class="site-brand-mark">60</span>
+            <span class="site-brand-label">Michel Desire</span>
         </a>
+        <nav class="site-nav-links">
+            <a href="#hero" class="site-nav-link is-active">Accueil</a>
+            <a href="#parcours" class="site-nav-link">Le parcours</a>
+            <a href="#galerie" class="site-nav-link">Souvenirs</a>
+            <a href="#voeux-famille" class="site-nav-link">Vœux de la famille</a>
+            <a href="#gateau-section" class="site-nav-link">Le gâteau</a>
+        </nav>
+        <button onclick="triggerConfetti()" class="hidden sm:inline-flex items-center px-4 py-2 rounded-full gold-gradient-bg text-[#4D3728] text-xs font-bold shadow-sm hover:brightness-105 transition-all cursor-pointer">
+            Célébrer
+        </button>
+    </header>
 
-        <div class="site-nav-links">
-            <a href="#hero" class="site-nav-link is-active" aria-current="page">Accueil</a>
-            <a href="#parcours" class="site-nav-link">Parcours</a>
-            <a href="#galerie" class="site-nav-link">Photos</a>
-            <a href="#voeux-famille" class="site-nav-link">Vœux de la Famille</a>
-        </div>
+    <!-- FLOATING AUDIO PLAYER (debout.mp3) -->
+    <div id="audio-widget" class="fixed bottom-6 right-6 z-50 flex items-center group">
+        <button id="play-pause-btn" onclick="toggleAudio()" class="w-12 h-12 rounded-full bg-[#4D3728] text-[#C9A64B] border-2 border-[#C9A64B] shadow-xl flex items-center justify-center transition-all hover:scale-110 active:scale-95 cursor-pointer relative" title="Ambiance Musicale">
+            <div id="micro-equalizer" class="absolute -top-1 -right-1 flex items-end space-x-0.5 bg-[#4D3728] border border-[#C9A64B] px-1 py-0.5 rounded-full paused">
+                <div class="micro-bar"></div>
+                <div class="micro-bar"></div>
+                <div class="micro-bar"></div>
+            </div>
+            <i id="play-icon" class="fa-solid fa-music text-sm text-[#C9A64B]"></i>
+        </button>
+    </div>
+    <audio id="birthday-music" loop preload="auto">
+        <source src="debout.mp3" type="audio/mpeg">
+    </audio>
 
-        <button onclick="triggerConfetti()" class="site-celebrate" type="button">Célébrer</button>
-    </nav>
-
-
-
-    <!-- SECTION HERO : PHOTO DE PROFIL RÉSERVÉE -->
-
-    <section id="hero" class="relative min-h-screen flex items-center justify-center pt-24 pb-16 px-4 overflow-hidden bg-gradient-to-b from-[#FAF8F5] via-[#FFFDF5] to-[#FAF8F5]">
-
-        <canvas id="glitterCanvas" class="absolute inset-0 pointer-events-none z-0"></canvas>
-
+    <!-- SECTION HERO : PORTRAIT DE MICHEL -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center pt-24 pb-16 px-4 overflow-hidden bg-gradient-to-b from-[#F8F4EE] via-[#FFFDF5] to-[#F8F4EE]">
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gold-200/30 rounded-full blur-3xl pointer-events-none animate-pulse-glow"></div>
 
-
-
-        <div class="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center mt-12">
-
-
-
-            <!-- PHOTO UNIQUE RÉSERVÉE POUR LE PROFIL DE MICHEL -->
-
+        <div class="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center mt-8">
             <div class="relative mb-6 animate-float">
-
                 <div class="w-48 h-48 md:w-56 md:h-56 rounded-full p-2 gold-gradient-bg shadow-2xl flex items-center justify-center relative">
-
                     <div class="w-full h-full rounded-full bg-gray-200 border-4 border-white flex flex-col items-center justify-center text-center overflow-hidden relative">
-
-                        <img src="desireserie.png" alt="Photo de Profil Michel Desire" class="w-full h-full object-cover" loading="eager" fetchpriority="high" decoding="async">
-
-                        <span class="text-[10px] uppercase font-bold text-gray-500 px-2"></span>
-
+                        <img src="desireserie.png" alt="Photo de Profil Michel Desire" class="w-full h-full object-cover" loading="eager" fetchpriority="high">
                     </div>
-
                 </div>
-
                 <div class="absolute -top-4 left-1/2 -translate-x-1/2 text-gold-500 text-3xl drop-shadow">
-
                     <i class="fa-solid fa-crown"></i>
-
                 </div>
-
             </div>
-
-
 
             <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-charcoal leading-tight mb-2">
-
                 Kanga Michel Desire
-
             </h1>
-
             <div class="font-script text-4xl md:text-5xl gold-gradient-text mb-6">
-
                 Joyeux 60e Anniversaire
-
             </div>
-
-
 
             <p class="font-garamond text-xl md:text-2xl text-slate-600 max-w-2xl italic leading-relaxed mb-8">
-
                 « Un homme d'exception, de principes et de cœur. Soixante années d'une vie riche, d'amour familial et d'une sagesse qui nous inspire chaque jour. »
-
             </p>
-
-
 
             <div class="flex flex-wrap items-center justify-center gap-4">
-
-                <a href="#parcours" class="gold-gradient-bg text-charcoal font-semibold px-6 py-3.5 rounded-full text-sm shadow-xl hover:shadow-gold-300/50 hover:scale-105 active:scale-95 transition-all flex items-center space-x-2">
-
+                <a href="#parcours" class="gold-gradient-bg text-charcoal font-semibold px-6 py-3.5 rounded-full text-sm shadow-xl hover:scale-105 active:scale-95 transition-all flex items-center space-x-2">
                     <span>Découvrir son Histoire</span>
-
                     <i class="fa-solid fa-arrow-down text-xs"></i>
-
                 </a>
-
                 <a href="#voeux-famille" class="glass-card hover:bg-gold-50 text-charcoal font-semibold px-6 py-3.5 rounded-full text-sm border border-gold-400/50 shadow-md hover:scale-105 active:scale-95 transition-all flex items-center space-x-2">
-
                     <i class="fa-solid fa-heart text-gold-600"></i>
-
                     <span>Les Vœux de la Famille</span>
-
                 </a>
-
             </div>
-
         </div>
-
     </section>
-
-
-
-    <!-- FLOATING AUDIO PLAYER -->
-
-    <div id="audio-widget" class="fixed bottom-6 right-6 z-50 flex items-center group">
-
-        <button id="play-pause-btn" onclick="toggleAudio()" class="w-12 h-12 rounded-full bg-charcoal/90 text-gold-300 border-2 border-gold-400 shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 relative" title="Ambiance Musicale">
-
-            <div id="micro-equalizer" class="absolute -top-1 -right-1 flex items-end space-x-0.5 bg-slateDark border border-gold-400 px-1 py-0.5 rounded-full paused">
-
-                <div class="micro-bar"></div>
-
-                <div class="micro-bar"></div>
-
-                <div class="micro-bar"></div>
-
-            </div>
-
-            <i id="play-icon" class="fa-solid fa-music text-base text-gold-400"></i>
-
-        </button>
-
-        <div class="absolute right-14 bg-charcoal/90 text-gold-200 text-xs px-3 py-1.5 rounded-xl border border-gold-400/40 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-lg">
-
-            <span id="audio-status-text">Activer la musique d'ambiance</span>
-
-        </div>
-
-    </div>
-
-
 
     <!-- SECTION 1: PARCOURS DE VIE -->
-
     <section id="parcours" class="py-20 px-4 max-w-6xl mx-auto relative">
-
         <div class="text-center mb-16">
-
-            <span class="text-xs uppercase tracking-widest text-gold-600 font-bold">Six Décennies d'Inspiration</span>
-
-            <h2 class="font-serif text-3xl md:text-5xl font-bold text-charcoal mt-2">Le Parcours de Vie</h2>
-
+            <span class="text-xs uppercase tracking-widest text-[#8A6848] font-bold">Six Décennies d'Inspiration</span>
+            <h2 class="font-serif text-3xl md:text-5xl font-bold text-[#4D3728] mt-2">Le Parcours de Vie</h2>
             <div class="w-24 h-1 gold-gradient-bg mx-auto my-4 rounded-full"></div>
-
             <p class="font-garamond text-lg md:text-xl text-gray-600 max-w-2xl mx-auto italic">
-
                 De ses origines à ces 60 ans d'excellence, découvrez les étapes clés de l'histoire remarquable de Kanga Michel Desire.
-
             </p>
-
         </div>
-
-
 
         <div class="relative wrap overflow-hidden p-2 md:p-10">
-
             <div class="border-2-2 absolute border-opacity-30 border-gold-400 h-full border text-center left-1/2 -ml-0.5 rounded-full"></div>
 
-
-
             <div class="mb-12 flex justify-between items-center w-full right-timeline group">
-
                 <div class="order-1 w-5/12 hidden md:block text-right pr-8">
-
-                    <span class="font-serif font-bold text-2xl gold-gradient-text">14 Octobre 1964</span>
-
+                    <span class="font-serif font-bold text-2xl gold-gradient-text">14 Octobre 1966</span>
                     <p class="text-xs text-gray-500 uppercase tracking-wider mt-1">Naissance & Origines</p>
-
                 </div>
-
                 <div class="z-20 flex items-center order-1 gold-gradient-bg shadow-xl w-10 h-10 rounded-full justify-center group-hover:scale-125 transition-transform">
-
                     <i class="fa-solid fa-baby text-charcoal text-sm"></i>
-
                 </div>
-
                 <div class="order-1 glass-card rounded-2xl shadow-xl w-full md:w-5/12 px-6 py-5 border-l-4 border-gold-500">
-
-                    <span class="md:hidden inline-block font-serif font-bold text-lg text-gold-700 mb-1">1964 • Naissance</span>
-
+                    <span class="md:hidden inline-block font-serif font-bold text-lg text-gold-700 mb-1">1966 • Naissance</span>
                     <h3 class="font-serif font-bold text-xl text-charcoal mb-2">Le Début d'un Destin</h3>
-
-                    <p class="text-sm text-gray-600 leading-relaxed">Le 14 octobre 1964 marque la naissance de Michel. Élevé dans des valeurs de respect, d'intégrité et de persévérance.</p>
-
+                    <p class="text-sm text-gray-600 leading-relaxed">Le 14 octobre 1966 marque la naissance de Michel. Élevé dans des valeurs de respect, d'intégrité et de persévérance.</p>
                 </div>
-
             </div>
-
-
 
             <div class="mb-6 flex justify-between items-center w-full left-timeline md:flex-row-reverse group">
-
                 <div class="order-1 w-5/12 hidden md:block text-left pl-8">
-
                     <span class="font-serif font-bold text-2xl gold-gradient-text">Aujourd'hui</span>
-
                     <p class="text-xs text-gray-500 uppercase tracking-wider mt-1">Le Cap des 60 Ans</p>
-
                 </div>
-
                 <div class="z-20 flex items-center order-1 gold-gradient-bg ring-4 ring-gold-200 shadow-2xl w-12 h-12 rounded-full justify-center group-hover:scale-125 transition-transform">
-
                     <i class="fa-solid fa-crown text-charcoal text-base"></i>
-
                 </div>
-
                 <div class="order-1 glass-card rounded-2xl shadow-2xl w-full md:w-5/12 px-6 py-5 border-r-4 border-gold-600 bg-gradient-to-r from-gold-50/50 to-white">
-
                     <span class="md:hidden inline-block font-serif font-bold text-lg text-gold-700 mb-1">Aujourd'hui • 60 Ans</span>
-
                     <h3 class="font-serif font-bold text-xl text-charcoal mb-2">60 ans d'excellence</h3>
-
-                    <p class="text-sm text-gray-600 leading-relaxed">Entouré de l'amour inestimable de son épouse et de ses enfants, Kanga Michel Desire célèbre soixante années d'une vie avec un parcours remarquable tant professionel que personnel.</p>
-
+                    <p class="text-sm text-gray-600 leading-relaxed">Entouré de l'amour inestimable de son épouse et de ses enfants, Kanga Michel Desire célèbre soixante années d'une vie avec un parcours remarquable tant professionnel que personnel.</p>
                 </div>
-
             </div>
-
         </div>
-
     </section>
 
-
-
-    <!-- SECTION 2: GALERIE DYNAMIQUE (CARROUSEL INTERACTIF DE 8 PHOTOS DE MICHEL) -->
-
+    <!-- SECTION 2: GALERIE DYNAMIQUE (CARROUSEL AVEC TOUTES LES PHOTOGRAPHIES EN ENTIER) -->
     <section id="galerie" class="py-20 px-4 bg-gradient-to-b from-white via-gold-50/20 to-white border-y border-gold-200/50">
-
         <div class="max-w-6xl mx-auto">
-
             <div class="text-center mb-12">
-
-                <span class="text-xs uppercase tracking-widest text-gold-600 font-bold">Mémoires & Souvenirs</span>
-
-                <h2 class="font-serif text-3xl md:text-5xl font-bold text-charcoal mt-2">Galerie de Michel</h2>
-
+                <span class="text-xs uppercase tracking-widest text-[#8A6848] font-bold">Mémoires & Souvenirs</span>
+                <h2 class="font-serif text-3xl md:text-5xl font-bold text-[#4D3728] mt-2">Galerie de Michel</h2>
                 <div class="w-24 h-1 gold-gradient-bg mx-auto my-4 rounded-full"></div>
-
                 <p class="text-xs text-gray-500 uppercase tracking-wider">Faites défiler pour découvrir les moments forts de sa vie</p>
-
             </div>
 
-
-
-            <!-- Carrousel avec défilement dynamique -->
-
+            <!-- Carrousel avec défilement manuel -->
             <div class="relative group">
-
                 <!-- Bouton Précédent -->
-
-                <button onclick="scrollGallery(-1)" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-6 z-20 w-12 h-12 rounded-full gold-gradient-bg text-charcoal shadow-xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all">
-
+                <button onclick="scrollGallery(-1)" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-6 z-20 w-12 h-12 rounded-full gold-gradient-bg text-charcoal shadow-xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all cursor-pointer">
                     <i class="fa-solid fa-chevron-left text-lg"></i>
-
                 </button>
 
-
-
-                <!-- Conteneur défilant des 8 photos -->
-
+                <!-- Conteneur défilant -->
                 <div id="gallery-carousel" class="flex space-x-6 overflow-x-auto no-scrollbar scroll-smooth py-4 px-2">
 
-
-
-                    <!-- Photo 1 -->
-
-                    <div class="flex-none w-80 glass-card rounded-2xl overflow-hidden shadow-lg group/item hover:-translate-y-2 transition-all duration-300">
-
-                        <div class="relative h-72 overflow-hidden bg-gray-100 flex items-center justify-center">
-
-                            <img src="desi4.png" alt="image de Jeunesse de Michel Desire" class="w-full h-full object-cover" loading="lazy" decoding="async">
-
-                            <span class="absolute top-3 left-3 bg-charcoal/80 backdrop-blur text-gold-300 text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase tracking-wider">Photo 1 • Jeunesse</span>
-
+                    <!-- Photo 1: desiret.jpeg -->
+                    <div class="flex-none w-80 glass-card rounded-2xl overflow-hidden shadow-lg">
+                        <div class="relative h-72 bg-gray-900 flex items-center justify-center overflow-hidden">
+                            <img src="desiret.jpeg" alt="Jeunesse de Michel Desire" class="w-full h-full object-contain" loading="lazy">
+                            <span class="absolute top-3 left-3 bg-charcoal/80 backdrop-blur text-gold-300 text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase z-10">Photo 1 • Jeunesse</span>
                         </div>
-
-                        <div class="p-4 border-t border-gold-200/50">
-
-                            <h4 class="font-serif font-bold text-lg text-charcoal">Les Débuts Proprometteurs</h4>
-
+                        <div class="p-4 border-t border-gold-200/50 bg-white/90">
+                            <h4 class="font-serif font-bold text-lg text-charcoal">Les Débuts Prometteurs</h4>
                             <p class="text-xs text-gray-500 mt-1">Sourire & Ambition de jeunesse</p>
-
                         </div>
-
                     </div>
 
-
-
-                    <!-- Photo 2 -->
-
-                    <div class="flex-none w-80 glass-card rounded-2xl overflow-hidden shadow-lg group/item hover:-translate-y-2 transition-all duration-300">
-
-                        <div class="relative h-72 overflow-hidden bg-gray-100 flex items-center justify-center">
-
-                            <img src="desi2.png" alt="image de Carrière de Michel Desire" class="w-full h-full object-cover" loading="lazy" decoding="async">
-
-                            <span class="absolute top-3 left-3 bg-gold-600 text-white text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase tracking-wider shadow">Photo 2 • Carrière</span>
-
+                    <!-- Photo 2: desi1.png -->
+                    <div class="flex-none w-80 glass-card rounded-2xl overflow-hidden shadow-lg">
+                        <div class="relative h-72 bg-gray-900 flex items-center justify-center overflow-hidden">
+                            <img src="desi1.png" alt="Carrière de Michel Desire" class="w-full h-full object-contain" loading="lazy">
+                            <span class="absolute top-3 left-3 bg-gold-600 text-white text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase z-10">Photo 2 • Carrière</span>
                         </div>
-
-                        <div class="p-4 border-t border-gold-200/50">
-
+                        <div class="p-4 border-t border-gold-200/50 bg-white/90">
                             <h4 class="font-serif font-bold text-lg text-charcoal">Rigueur & Détermination</h4>
-
                             <p class="text-xs text-gray-500 mt-1">Engagement et succès professionnel</p>
-
                         </div>
-
                     </div>
 
-
-
-                    <!-- Photo 3 -->
-
-                    <div class="flex-none w-80 glass-card rounded-2xl overflow-hidden shadow-lg group/item hover:-translate-y-2 transition-all duration-300">
-
-                        <div class="relative h-72 overflow-hidden bg-gray-100 flex items-center justify-center">
-
-                            <img src="desiadele.jpg" alt="image de Mariage de Michel Desire" class="w-full h-full object-cover" loading="lazy" decoding="async">
-
-                            <span class="absolute top-3 left-3 bg-amber-800 text-gold-200 text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase tracking-wider">Photo 3 • Mariage</span>
-
+                    <!-- Photo 3: desiadele.jpg -->
+                    <div class="flex-none w-80 glass-card rounded-2xl overflow-hidden shadow-lg">
+                        <div class="relative h-72 bg-gray-900 flex items-center justify-center overflow-hidden">
+                            <img src="desiadele.jpg" alt="Mariage de Michel Desire" class="w-full h-full object-contain" loading="lazy">
+                            <span class="absolute top-3 left-3 bg-amber-800 text-gold-200 text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase z-10">Photo 3 • Mariage</span>
                         </div>
-
-                        <div class="p-4 border-t border-gold-200/50">
-
+                        <div class="p-4 border-t border-gold-200/50 bg-white/90">
                             <h4 class="font-serif font-bold text-lg text-charcoal">L'Union Sacrée</h4>
-
                             <p class="text-xs text-gray-500 mt-1">Fondation d'une famille unie</p>
-
                         </div>
-
                     </div>
 
-
-
-                    <!-- Photo 4 -->
-
-                    <div class="flex-none w-80 glass-card rounded-2xl overflow-hidden shadow-lg group/item hover:-translate-y-2 transition-all duration-300">
-
-                        <div class="relative h-72 overflow-hidden bg-gray-100 flex items-center justify-center">
-
-                            <img src="famille.JPG" alt="image de la famille de Michel Desire" class="w-full h-full object-cover" loading="lazy" decoding="async">
-
-                            <span class="absolute top-3 left-3 bg-charcoal/80 backdrop-blur text-gold-300 text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase tracking-wider">Photo 4 • Famille</span>
-
+                    <!-- Photo 4: famille.JPG -->
+                    <div class="flex-none w-80 glass-card rounded-2xl overflow-hidden shadow-lg">
+                        <div class="relative h-72 bg-gray-900 flex items-center justify-center overflow-hidden">
+                            <img src="famille.JPG" alt="Famille de Michel Desire" class="w-full h-full object-contain" loading="lazy">
+                            <span class="absolute top-3 left-3 bg-charcoal/80 backdrop-blur text-gold-300 text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase z-10">Photo 4 • Famille</span>
                         </div>
-
-                        <div class="p-4 border-t border-gold-200/50">
-
+                        <div class="p-4 border-t border-gold-200/50 bg-white/90">
                             <h4 class="font-serif font-bold text-lg text-charcoal">Père Dévoué</h4>
-
                             <p class="text-xs text-gray-500 mt-1">Entouré de ses enfants</p>
-
                         </div>
-
                     </div>
 
-
-
-                    <!-- Photo 5 -->
-
-                    <div class="flex-none w-80 glass-card rounded-2xl overflow-hidden shadow-lg group/item hover:-translate-y-2 transition-all duration-300">
-
-                        <div class="relative h-72 overflow-hidden bg-gray-100 flex items-center justify-center">
-
-                            <img src="desi1.png" alt="image de Voyages de Michel Desire" class="w-full h-full object-cover" loading="lazy" decoding="async">
-
-                            <span class="absolute top-3 left-3 bg-gold-600 text-white text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase tracking-wider">Photo 5 • Voyages</span>
-
+                    <!-- Photo 5: chine.jpeg -->
+                    <div class="flex-none w-80 glass-card rounded-2xl overflow-hidden shadow-lg">
+                        <div class="relative h-72 bg-gray-900 flex items-center justify-center overflow-hidden">
+                            <img src="chine.jpeg" alt="Voyages de Michel Desire" class="w-full h-full object-contain" loading="lazy">
+                            <span class="absolute top-3 left-3 bg-gold-600 text-white text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase z-10 shadow">Photo 5 • Voyages</span>
                         </div>
-
-                        <div class="p-4 border-t border-gold-200/50">
-
+                        <div class="p-4 border-t border-gold-200/50 bg-white/90">
                             <h4 class="font-serif font-bold text-lg text-charcoal">Découvertes & Passions</h4>
-
                             <p class="text-xs text-gray-500 mt-1">Moments d'évasion privilégiés</p>
-
                         </div>
-
                     </div>
 
-
-
-                    <!-- Photo 6 -->
-
-                    <div class="flex-none w-80 glass-card rounded-2xl overflow-hidden shadow-lg group/item hover:-translate-y-2 transition-all duration-300">
-
-                        <div class="relative h-72 overflow-hidden bg-gray-100 flex items-center justify-center">
-
-                            <img src="desi5.png" alt="image de Michel Desire" class="w-full h-full object-cover" loading="lazy" decoding="async">
-
-                            <span class="absolute top-3 left-3 bg-amber-800 text-gold-200 text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase tracking-wider">Photo 6 • Sagesse</span>
-
+                    <!-- Photo 6: desi5.png -->
+                    <div class="flex-none w-80 glass-card rounded-2xl overflow-hidden shadow-lg">
+                        <div class="relative h-72 bg-gray-900 flex items-center justify-center overflow-hidden">
+                            <img src="desi5.png" alt="Michel Desire" class="w-full h-full object-contain" loading="lazy">
+                            <span class="absolute top-3 left-3 bg-amber-800 text-gold-200 text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase z-10">Photo 6 • Sagesse</span>
                         </div>
-
-                        <div class="p-4 border-t border-gold-200/50">
-
+                        <div class="p-4 border-t border-gold-200/50 bg-white/90">
                             <h4 class="font-serif font-bold text-lg text-charcoal">Sérénité & Principes</h4>
-
                             <p class="text-xs text-gray-500 mt-1">Un regard tourné vers l'avenir</p>
-
                         </div>
-
                     </div>
 
-
-
-                    <!-- Photo 7 -->
-
-                    <div class="flex-none w-80 glass-card rounded-2xl overflow-hidden shadow-lg group/item hover:-translate-y-2 transition-all duration-300">
-
-                        <div class="relative h-72 overflow-hidden bg-gray-100 flex items-center justify-center">
-
-                            <img src="Desi.png" alt="image de Distinctions de Michel Desire" class="w-full h-full object-cover" loading="lazy" decoding="async">
-
-                            <span class="absolute top-3 left-3 bg-charcoal/80 backdrop-blur text-gold-300 text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase tracking-wider">Photo 7 • Distinctions</span>
-
+                    <!-- Photo 7: dinstinction.jpeg -->
+                    <div class="flex-none w-80 glass-card rounded-2xl overflow-hidden shadow-lg">
+                        <div class="relative h-72 bg-gray-900 flex items-center justify-center overflow-hidden">
+                            <img src="dinstinction.jpeg" alt="Distinctions de Michel Desire" class="w-full h-full object-contain" loading="lazy">
+                            <span class="absolute top-3 left-3 bg-charcoal/80 backdrop-blur text-gold-300 text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase z-10">Photo 7 • Distinctions</span>
                         </div>
-
-                        <div class="p-4 border-t border-gold-200/50">
-
+                        <div class="p-4 border-t border-gold-200/50 bg-white/90">
                             <h4 class="font-serif font-bold text-lg text-charcoal">Honneur & Gratitude</h4>
-
                             <p class="text-xs text-gray-500 mt-1">Reconnaissance de ses pairs</p>
-
                         </div>
-
                     </div>
 
-
-
-                    <!-- Photo 8 -->
-
-                    <div class="flex-none w-80 glass-card rounded-2xl overflow-hidden shadow-lg group/item hover:-translate-y-2 transition-all duration-300">
-
-                        <div class="relative h-72 overflow-hidden bg-gray-100 flex items-center justify-center">
-
-                            <img src="desireserie.png" alt="image de Michel Desire" class="w-full h-full object-cover" loading="lazy" decoding="async">
-
-                            <span class="absolute top-3 left-3 bg-gold-600 text-white text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase tracking-wider shadow">Photo 8 • Présent (60 ans)</span>
-
+                    <!-- Photo 8: desireserie.png -->
+                    <div class="flex-none w-80 glass-card rounded-2xl overflow-hidden shadow-lg">
+                        <div class="relative h-72 bg-gray-900 flex items-center justify-center overflow-hidden">
+                            <img src="desireserie.png" alt="Michel Desire 60 ans" class="w-full h-full object-contain" loading="lazy">
+                            <span class="absolute top-3 left-3 bg-gold-600 text-white text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase shadow z-10">Photo 8 • Charisme</span>
                         </div>
-
-                        <div class="p-4 border-t border-gold-200/50">
-
+                        <div class="p-4 border-t border-gold-200/50 bg-white/90">
                             <h4 class="font-serif font-bold text-lg text-charcoal">Charisme Intemporel</h4>
-
-                            <p class="text-xs text-gray-500 mt-1">Celebration du 60e Anniversaire</p>
-
+                            <p class="text-xs text-gray-500 mt-1">Célébration du 60e Anniversaire</p>
                         </div>
-
                     </div>
 
-
+                    <!-- Photo 9: desifrance.png -->
+                    <div class="flex-none w-80 glass-card rounded-2xl overflow-hidden shadow-lg">
+                        <div class="relative h-72 bg-gray-900 flex items-center justify-center overflow-hidden">
+                            <img src="desifrance.png" alt="Moment Partagé" class="w-full h-full object-contain" loading="lazy">
+                            <span class="absolute top-3 left-3 bg-amber-800 text-gold-200 text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase z-10">Photo 9 • Complicité</span>
+                        </div>
+                        <div class="p-4 border-t border-gold-200/50 bg-white/90">
+                            <h4 class="font-serif font-bold text-lg text-charcoal">Instants Précieux</h4>
+                            <p class="text-xs text-gray-500 mt-1">Joie et convivialité</p>
+                        </div>
+                    </div>
 
                 </div>
 
-
-
                 <!-- Bouton Suivant -->
-
-                <button onclick="scrollGallery(1)" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-6 z-20 w-12 h-12 rounded-full gold-gradient-bg text-charcoal shadow-xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all">
-
+                <button onclick="scrollGallery(1)" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-6 z-20 w-12 h-12 rounded-full gold-gradient-bg text-charcoal shadow-xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all cursor-pointer">
                     <i class="fa-solid fa-chevron-right text-lg"></i>
-
                 </button>
-
             </div>
-
         </div>
-
     </section>
 
-
-
-    <!-- SECTION 3: LES VŒUX DE LA FAMILLE -->
-
+    <!-- SECTION 3: VŒUX DE LA FAMILLE -->
     <section id="voeux-famille" class="py-24 px-4 max-w-7xl mx-auto relative">
-
         <div class="text-center mb-16">
-
             <div class="inline-flex items-center space-x-2 px-4 py-1 rounded-full bg-gold-100 text-gold-800 text-xs font-bold uppercase tracking-wider mb-3">
-
                 <i class="fa-solid fa-heart text-gold-600"></i>
-
                 <span>Témoignages du Cœur</span>
-
             </div>
-
             <h2 class="font-serif text-3xl md:text-5xl font-bold text-charcoal">Les Vœux de la Famille</h2>
-
             <div class="w-24 h-1 gold-gradient-bg mx-auto my-4 rounded-full"></div>
-
         </div>
 
-
-
- <!-- 1. FEATURED CARD: ÉPOUSE -->
+        <!-- 1. ÉPOUSE -->
         <div class="mb-12">
             <div class="glass-card rounded-3xl p-8 md:p-12 relative border-2 border-gold-400 shadow-2xl bg-gradient-to-br from-gold-50/60 via-white to-gold-50/30 overflow-hidden">
                 <div class="relative z-10 flex flex-col md:flex-row items-center md:items-start gap-8">
                     <div class="flex-shrink-0 text-center">
                         <div class="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-gold-400 bg-gray-200 p-1 shadow-xl mx-auto flex items-center justify-center overflow-hidden">
-                            <img src="adele.jpeg" alt="Photo de Madame Kanga" class="w-full h-full object-cover">
+                            <img src="adele.jpeg" alt="Madame Kanga" class="w-full h-full object-cover">
                         </div>
                         <span class="inline-block mt-4 px-4 py-1.5 bg-gold-600 text-white font-semibold text-[10px] uppercase tracking-widest rounded-full shadow">
                             Son Épouse Attentive
@@ -1223,7 +662,7 @@
                                 <h3 class="font-serif text-2xl md:text-3xl font-bold text-charcoal">Madame Kanga</h3>
                                 <p class="text-xs text-gold-700 font-semibold tracking-wider uppercase">Son Épouse & Compagne de Vie</p>
                             </div>
-                            <button onclick="speakWish('Son Épouse', 'Mon très cher Michel, soixante ans est un cap magnifique pour l\'homme extraordinaire que tu es. À tes côtés, chaque jour est empreint  de respect et de complicité. Merci d\'être le pilier inébranlable de notre foyer et le meilleur des pères pour nos enfants. Joyeux 60e anniversaire mon amour !')" class="self-center md:self-auto px-4 py-2 rounded-full gold-gradient-bg text-charcoal text-xs font-bold flex items-center space-x-2 shadow hover:brightness-105 transition-transform active:scale-95">
+                            <button onclick="speakWish('Son Épouse', 'Mon très cher Michel, soixante ans est un cap magnifique pour l\'homme extraordinaire que tu es. À tes côtés, chaque jour est empreint de respect et de complicité. Merci d\'être le pilier inébranlable de notre foyer et le meilleur des pères pour nos enfants. Joyeux 60e anniversaire mon amour !')" class="self-center md:self-auto px-4 py-2 rounded-full gold-gradient-bg text-charcoal text-xs font-bold flex items-center space-x-2 shadow hover:brightness-105 transition-transform active:scale-95 cursor-pointer">
                                 <i class="fa-solid fa-volume-high text-amber-900"></i>
                                 <span>Écouter</span>
                             </button>
@@ -1231,605 +670,382 @@
 
                         <div class="relative bg-white/80 p-6 md:p-8 rounded-2xl border border-gold-200/80 shadow-inner italic font-garamond text-xl md:text-2xl text-gray-800 leading-relaxed">
                             <i class="fa-solid fa-quote-left text-gold-400 text-4xl absolute -top-4 -left-2 opacity-40"></i>
-                            « Mon très cher Michel, soixante ans est un cap magnifique pour l'homme extraordinaire que tu es. À tes côtés, chaque jour est empreint  de respect et d'une profonde complicité. Merci d'être le pilier inébranlable de notre foyer, un époux attentionné et le meilleur des pères pour nos quatre enfants. Joyeux 60e anniversaire mon amour ! »
+                            « Mon très cher Michel, soixante ans est un cap magnifique pour l'homme extraordinaire que tu es. À tes côtés, chaque jour est empreint de respect et d'une profonde complicité. Merci d'être le pilier inébranlable de notre foyer, un époux attentionné et le meilleur des pères pour nos quatre enfants. Joyeux 60e anniversaire mon amour ! »
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- 2. CARDS FOR THE 4 CHILDREN -->
-
+        <!-- 2. LES 4 ENFANTS -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-
-
-            <!-- ENFANT 1 -->
-
+            <!-- Enfant 1 -->
             <div class="glass-card rounded-3xl p-6 md:p-8 relative border-2 border-gold-300/40 hover:border-gold-500 transition-all shadow-xl flex flex-col justify-between">
-
                 <div>
-
                     <div class="flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-4 mb-6">
-
                         <div class="w-24 h-24 rounded-full border-2 border-gold-400 bg-gray-200 flex-shrink-0 flex items-center justify-center shadow-md overflow-hidden mx-auto sm:mx-0">
-
-                            <img src="dareen.jpeg" alt="Photo de Kanga Jules Dareen" class="w-full h-full object-cover" loading="lazy" decoding="async">
-
+                            <img src="dareen.jpeg" alt="Kanga Jules Dareen" class="w-full h-full object-cover" loading="lazy">
                         </div>
-
                         <div class="text-center sm:text-left pt-2">
-
-                            <h3 class="font-serif text-2xl font-bold text-charcoal"> Kanga Jules Dareen</h3>
-
+                            <h3 class="font-serif text-2xl font-bold text-charcoal">Kanga Jules Dareen</h3>
                             <p class="text-xs text-gold-600 font-semibold tracking-wider uppercase mt-1">Fils Aîné</p>
-
                         </div>
-
                     </div>
-
-
-
                     <div class="relative bg-white/70 p-5 rounded-2xl border border-gold-100 mb-6 italic font-garamond text-lg text-gray-700 leading-relaxed">
-
-                        « Papa  Merci de m'avoir appris qu'avec la rigueur et de l'honneur, aucun sommet n'est inatteignable .Joyeux anniversaire Papa ! »
-
+                        « Papa, merci de m'avoir appris qu'avec la rigueur et le travail  aucun sommet n'est inatteignable. Joyeux anniversaire Papa ! »
                     </div>
-
                 </div>
-
-
-
                 <div class="flex items-center justify-between pt-4 border-t border-gold-200/50">
-
-                    <span class="font-script text-2xl text-gold-700">Dareen .</span>
-
-                    <button onclick="speakWish('Dareen.', 'Papa, tu es mon premier modèle d\'homme, de rigueur et d\'intégrité. Joyeux 60e anniversaire Papa !')" class="px-3.5 py-1.5 rounded-full bg-gold-50 hover:bg-gold-100 text-gold-800 text-xs font-semibold flex items-center space-x-2 border border-gold-300 transition-colors">
-
+                    <span class="font-script text-2xl text-gold-700">Dareen</span>
+                    <button onclick="speakWish('Dareen', 'Papa, merci de m\'avoir appris qu\'avec la rigueur et le travail, aucun sommet n\'est inatteignable. Joyeux anniversaire Papa !')" class="px-3.5 py-1.5 rounded-full bg-gold-50 hover:bg-gold-100 text-gold-800 text-xs font-semibold flex items-center space-x-2 border border-gold-300 transition-colors cursor-pointer">
                         <i class="fa-solid fa-volume-high text-gold-600"></i>
-
                         <span>Écouter</span>
-
                     </button>
-
                 </div>
-
             </div>
 
-
-
-            <!-- ENFANT 2 -->
-
+            <!-- Enfant 2 -->
             <div class="glass-card rounded-3xl p-6 md:p-8 relative border-2 border-gold-300/40 hover:border-gold-500 transition-all shadow-xl flex flex-col justify-between">
-
                 <div>
-
                     <div class="flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-4 mb-6">
-
                         <div class="w-24 h-24 rounded-full border-2 border-gold-400 bg-gray-200 flex-shrink-0 flex items-center justify-center shadow-md overflow-hidden mx-auto sm:mx-0">
-
-                             <img src="maria.jpeg" alt="Photo de Maria Kanga" class="w-full h-full object-cover" loading="lazy" decoding="async">
-
+                             <img src="maria.jpeg" alt="Maria Kanga" class="w-full h-full object-cover" loading="lazy">
                         </div>
-
                         <div class="text-center sm:text-left pt-2">
-
-                            <h3 class="font-serif text-2xl font-bold text-charcoal">Maria  Kanga</h3>
-
-                            <p class="text-xs text-gold-600 font-semibold tracking-wider uppercase mt-1">  Fille Cadette  </p>
-
+                            <h3 class="font-serif text-2xl font-bold text-charcoal">Maria Kanga</h3>
+                            <p class="text-xs text-gold-600 font-semibold tracking-wider uppercase mt-1">Fille Cadette</p>
                         </div>
-
                     </div>
-
-
-
                     <div class="relative bg-white/70 p-5 rounded-2xl border border-gold-100 mb-6 italic font-garamond text-lg text-gray-700 leading-relaxed">
-
-                        « Mon cher Papa, ta rigeur  et ton soutien indéfectible sont les plus beaux cadeaux de ma vie. Pour tes 60 ans, je te souhaite toute la santé du monde. ! »
-
+                        « Mon cher Papa, ta rigueur et ton soutien indéfectible sont les plus beaux cadeaux de ma vie. Pour tes 60 ans, je te souhaite toute la santé du monde ! »
                     </div>
-
                 </div>
-
-
-
                 <div class="flex items-center justify-between pt-4 border-t border-gold-200/50">
-
                     <span class="font-script text-2xl text-gold-700">Maria Kanga</span>
-
-                    <button onclick="speakWish('Maria Kanga', 'Mon cher Papa, ton amour inconditionnel et ton soutien indéfectible sont les plus beaux cadeaux de ma vie. Je t\'aime de tout mon cœur !')" class="px-3.5 py-1.5 rounded-full bg-gold-50 hover:bg-gold-100 text-gold-800 text-xs font-semibold flex items-center space-x-2 border border-gold-300 transition-colors">
-
+                    <button onclick="speakWish('Maria Kanga', 'Mon cher Papa, ton amour inconditionnel et ton soutien indéfectible sont les plus beaux cadeaux de ma vie. Je t\'aime de tout mon cœur !')" class="px-3.5 py-1.5 rounded-full bg-gold-50 hover:bg-gold-100 text-gold-800 text-xs font-semibold flex items-center space-x-2 border border-gold-300 transition-colors cursor-pointer">
                         <i class="fa-solid fa-volume-high text-gold-600"></i>
-
                         <span>Écouter</span>
-
                     </button>
-
                 </div>
-
             </div>
 
-
-
-            <!-- ENFANT 3 -->
-
+            <!-- Enfant 3 -->
             <div class="glass-card rounded-3xl p-6 md:p-8 relative border-2 border-gold-300/40 hover:border-gold-500 transition-all shadow-xl flex flex-col justify-between">
-
                 <div>
-
                     <div class="flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-4 mb-6">
-
                         <div class="w-24 h-24 rounded-full border-2 border-gold-400 bg-gray-200 flex-shrink-0 flex items-center justify-center shadow-md overflow-hidden mx-auto sm:mx-0">
-
-                             <img src="vanina.jpeg" alt="Photo de Vanina Kanga" class="w-full h-full object-cover" loading="lazy" decoding="async">
-
+                             <img src="vanina.jpeg" alt="Vanina Kanga" class="w-full h-full object-cover" loading="lazy">
                         </div>
-
                         <div class="text-center sm:text-left pt-2">
-
                             <h3 class="font-serif text-2xl font-bold text-charcoal">Vanina Kanga</h3>
-
                             <p class="text-xs text-gold-600 font-semibold tracking-wider uppercase mt-1">Deuxième Fille</p>
-
                         </div>
-
                     </div>
-
-
-
                     <div class="relative bg-white/70 p-5 rounded-2xl border border-gold-100 mb-6 italic font-garamond text-lg text-gray-700 leading-relaxed">
-
-                        « Papa tu sais  transmettre la sagesse et me guider a chaque etape de ma vie  sans  Que Dieu te bénisse abondamment. Joyeux 60e Anniversaire Papa ! »
-
+                        « Papa, tu sais transmettre la sagesse et me guider à chaque étape de ma vie. Que Dieu te bénisse abondamment. Joyeux 60e Anniversaire Papa ! »
                     </div>
-
                 </div>
-
-
-
                 <div class="flex items-center justify-between pt-4 border-t border-gold-200/50">
-
-                    <span class="font-script text-2xl text-gold-700">Vanina </span>
-
-                    <button onclick="speakWish('Vanina', 'Papa tu sais  transmettre la sagesse et me guider a chaque etape de ma vie  sans  Que Dieu te bénisse abondamment. Joyeux 60e Anniversaire Papa !')" class="px-3.5 py-1.5 rounded-full bg-gold-50 hover:bg-gold-100 text-gold-800 text-xs font-semibold flex items-center space-x-2 border border-gold-300 transition-colors">
-
+                    <span class="font-script text-2xl text-gold-700">Vanina</span>
+                    <button onclick="speakWish('Vanina', 'Papa, tu sais transmettre la sagesse et me guider à chaque étape de ma vie. Que Dieu te bénisse abondamment. Joyeux 60e Anniversaire Papa !')" class="px-3.5 py-1.5 rounded-full bg-gold-50 hover:bg-gold-100 text-gold-800 text-xs font-semibold flex items-center space-x-2 border border-gold-300 transition-colors cursor-pointer">
                         <i class="fa-solid fa-volume-high text-gold-600"></i>
-
                         <span>Écouter</span>
-
                     </button>
-
                 </div>
-
             </div>
 
-
-
-            <!-- ENFANT 4 -->
-
+            <!-- Enfant 4 -->
             <div class="glass-card rounded-3xl p-6 md:p-8 relative border-2 border-gold-300/40 hover:border-gold-500 transition-all shadow-xl flex flex-col justify-between">
-
                 <div>
-
                     <div class="flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-4 mb-6">
-
                         <div class="w-24 h-24 rounded-full border-2 border-gold-400 bg-gray-200 flex-shrink-0 flex items-center justify-center shadow-md overflow-hidden mx-auto sm:mx-0">
-
-                            <img src="dimitri.jpeg" alt="Photo de Makong Kanga Pierre Dimitri" class="w-full h-full object-cover" loading="lazy" decoding="async">
-
+                            <img src="dimitri.jpeg" alt="Makong Kanga Pierre Dimitri" class="w-full h-full object-cover" loading="lazy">
                         </div>
-
                         <div class="text-center sm:text-left pt-2">
-
                             <h3 class="font-serif text-2xl font-bold text-charcoal">Makong Kanga Pierre Dimitri</h3>
-
                             <p class="text-xs text-gold-600 font-semibold tracking-wider uppercase mt-1">Benjamin</p>
+                        </div>
+                    </div>
+                    <div class="relative bg-white/70 p-5 rounded-2xl border border-gold-100 mb-6 italic font-garamond text-lg text-gray-700 leading-relaxed">
+                        « Papa, être le benjamin est un privilège. Ta guidance, ta discipline et ta force tranquille font notre fierté. Magnifique anniversaire à toi ! »
+                    </div>
+                </div>
+                <div class="flex items-center justify-between pt-4 border-t border-gold-200/50">
+                    <span class="font-script text-2xl text-gold-700">Makong</span>
+                    <button onclick="speakWish('Dimitri', 'Papa, être le benjamin est un privilège. Ta guidance, ta discipline et ta force tranquille font notre fierté. Magnifique anniversaire à toi !')" class="px-3.5 py-1.5 rounded-full bg-gold-50 hover:bg-gold-100 text-gold-800 text-xs font-semibold flex items-center space-x-2 border border-gold-300 transition-colors cursor-pointer">
+                        <i class="fa-solid fa-volume-high text-gold-600"></i>
+                        <span>Écouter</span>
+                    </button>
+                </div>
+            </div>
 
+        </div>
+    </section>
+
+    <!-- SECTION 4: LE GÂTEAU D'ANNIVERSAIRE -->
+    <section id="gateau-section" class="py-24 px-4 bg-gradient-to-b from-[#F8F4EE] via-[#FFFDF0] to-[#F8F4EE] border-t border-[#C9A64B]/30">
+        <div class="max-w-4xl mx-auto text-center">
+            <span class="text-xs uppercase tracking-widest text-[#8A6848] font-bold">Célébration des 6 Décennies</span>
+            <h2 class="font-serif text-3xl md:text-5xl font-bold text-[#4D3728] mt-2">Le Gâteau d'Anniversaire</h2>
+            <div class="w-20 h-1 gold-gradient-bg mx-auto my-4 rounded-full"></div>
+            <p class="font-garamond text-xl text-gray-600 italic mb-12">
+                Suivez les étapes pour couper le gâteau et souffler les bougies de cette magnifique célébration.
+            </p>
+
+            <div class="glass-card rounded-3xl p-8 md:p-12 shadow-2xl relative border-2 border-[#C9A64B] overflow-hidden max-w-xl mx-auto mb-8">
+                
+                <div class="cake-container">
+                    <div id="cake-knife"><i class="fa-solid fa-utensils"></i></div>
+
+                    <div style="display:flex; flex-direction:column; align-items:center;">
+                        <div id="cake-top" class="cake-tier-top">
+                            <div class="frosting-drip"></div>
+                            <div class="candles-row">
+                                <div class="candle"><div id="flame-1" class="flame"></div><div id="smoke-1" class="smoke"></div></div>
+                                <div class="candle"><div id="flame-2" class="flame"></div><div id="smoke-2" class="smoke"></div></div>
+                                <div class="candle"><div id="flame-3" class="flame"></div><div id="smoke-3" class="smoke"></div></div>
+                                <div class="candle"><div id="flame-4" class="flame"></div><div id="smoke-4" class="smoke"></div></div>
+                                <div class="candle"><div id="flame-5" class="flame"></div><div id="smoke-5" class="smoke"></div></div>
+                                <div class="candle"><div id="flame-6" class="flame"></div><div id="smoke-6" class="smoke"></div></div>
+                            </div>
                         </div>
 
+                        <div id="cake-bottom" class="cake-tier-bottom flex items-center justify-center">
+                            <div class="frosting-drip"></div>
+                            <span class="font-serif font-bold text-2xl text-[#8A6848] tracking-widest mt-4">60 ANS</span>
+                        </div>
+
+                        <div class="cake-plate mt-0"></div>
                     </div>
-
-
-
-                    <div class="relative bg-white/70 p-5 rounded-2xl border border-gold-100 mb-6 italic font-garamond text-lg text-gray-700 leading-relaxed">
-
-                        « Papa, être le benjamin est un privilège. Ta guidance , ta discipline et ta force tranquille font notre fierté. Magnifique anniversaire à toi ! »
-
-                    </div>
-
                 </div>
 
-
-
-                <div class="flex items-center justify-between pt-4 border-t border-gold-200/50">
-
-                    <span class="font-script text-2xl text-gold-700">Makong</span>
-
-                    <button onclick="speakWish('Dimitri', 'Papa, être le benjamin est un privilège. Ta guidance , ta discipline et ta force tranquille font notre fierté. Magnifique anniversaire à toi !')" class="px-3.5 py-1.5 rounded-full bg-gold-50 hover:bg-gold-100 text-gold-800 text-xs font-semibold flex items-center space-x-2 border border-gold-300 transition-colors">
-
-                        <i class="fa-solid fa-volume-high text-gold-600"></i>
-
-                        <span>Écouter</span>
-
+                <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+                    <button id="btn-cut" onclick="cutCake()" class="px-6 py-3 rounded-full gold-gradient-bg text-[#4D3728] font-bold text-sm shadow-md hover:brightness-105 active:scale-95 transition-all cursor-pointer">
+                        Étape 1 - Couper le gâteau
                     </button>
-
+                    <button id="btn-blow" onclick="blowCandles()" disabled class="px-6 py-3 rounded-full bg-gray-200 text-gray-400 font-bold text-sm shadow-none cursor-not-allowed transition-all">
+                        Étape 2 - Souffler les bougies
+                    </button>
+                    <button id="btn-reset" onclick="resetCake()" class="px-5 py-3 rounded-full border border-[#C9A64B] text-[#4D3728] font-bold text-sm hover:bg-[#C9A64B]/10 transition-all cursor-pointer">
+                        Recommencer
+                    </button>
                 </div>
 
+                <div id="final-message" class="hidden mt-8 p-6 rounded-2xl bg-white/90 border border-[#C9A64B] text-center animate-pulse-glow">
+                    <h3 class="font-serif text-2xl font-bold text-[#4D3728] mb-2">🎉 Joyeux 60e Anniversaire Michel ! 🎉</h3>
+                    <p class="font-garamond text-lg text-gray-700 italic">
+                        Que cette nouvelle décennie vous apporte une santé de fer, un bonheur infini, la paix et de très belles années à venir entouré de votre merveilleuse famille.
+                    </p>
+                </div>
             </div>
-
-
-
         </div>
-
     </section>
 
-
-
-    <!-- SECTION TOAST INTERACTIF -->
-
-    <section class="py-16 px-4 bg-gradient-to-r from-charcoal via-slateDark to-charcoal text-white relative overflow-hidden">
-
-        <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:16px_16px]"></div>
-
-        <div class="max-w-4xl mx-auto text-center relative z-10">
-
-            <h2 class="font-serif text-3xl md:text-5xl font-bold gold-gradient-text mb-4">Trinquons aux 60 Ans !</h2>
-
-            <button onclick="raiseToast()" class="mt-4 gold-gradient-bg text-charcoal font-bold px-8 py-4 rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all text-base flex items-center space-x-3 mx-auto">
-
-                <i class="fa-solid fa-champagne-glasses text-lg"></i>
-
-                <span>Lever Mon Verre (Toast)</span>
-
-            </button>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- NOUVEAU FOOTER AVEC STANDARDS DU WEB & MENTION ML DIGITAL AGENCY -->
-
-    <footer class="bg-charcoal text-white border-t border-gold-500/30 py-12 px-4 relative">
-
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
-
-                 <div>
-                    <p>&copy; 2026 Tous droits réservés.</p> 
-                </div>
+    <!-- FOOTER -->
+    <footer class="bg-charcoal text-white py-10 px-4 border-t border-gold-500/30">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div>
+                <p class="font-serif text-lg text-gold-400">Kanga Michel Desire — 60 Ans</p>
+                <p class="text-xs text-gray-400 mt-1">&copy; 2026 Tous droits réservés.</p>
+            </div>
             <div class="text-xs text-gray-400 text-center md:text-right">
-                <p class="mt-1 font-semibold text-gold-400 tracking-wide">
-                Réalisé avec excellence par <span class="text-white font-bold">ML Digital Agency</span>
-
+                <p class="font-semibold text-gold-400 tracking-wide">
+                    Réalisé avec excellence par <span class="text-white font-bold">ML Digital Agency</span>
                 </p>
-
             </div>
-
         </div>
-
     </footer>
 
-
-
-    <!-- Toast Notification Popup -->
-
-    <div id="toast" class="fixed top-20 right-5 z-50 glass-dark text-white px-5 py-3 rounded-2xl shadow-2xl border border-gold-400 flex items-center space-x-3 translate-x-72 opacity-0 pointer-events-none transition-all duration-300">
-
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed top-20 right-5 z-50 glass-card text-charcoal px-5 py-3 rounded-2xl shadow-2xl border border-gold-400 flex items-center space-x-3 translate-x-72 opacity-0 pointer-events-none transition-all duration-300">
         <div class="w-8 h-8 rounded-full gold-gradient-bg text-charcoal flex items-center justify-center font-bold text-sm">
-
-            <i id="toast-icon" class="fa-solid fa-check"></i>
-
+            <i class="fa-solid fa-check"></i>
         </div>
-
         <div>
-
-            <h5 id="toast-title" class="font-serif font-bold text-sm text-gold-300">Notification</h5>
-
-            <p id="toast-message" class="text-xs text-gray-200">Action réussie !</p>
-
+            <h5 id="toast-title" class="font-serif font-bold text-sm">Notification</h5>
+            <p id="toast-message" class="text-xs text-gray-600">Action réussie !</p>
         </div>
-
     </div>
 
-
-
-    <!-- MUSIQUE LOCALE : placez debout.mp3 dans le même dossier que index.html -->
-
-    <audio id="birthday-music" loop preload="auto">
-
-        <source src="debout.mp3" type="audio/mpeg">
-
-        Votre navigateur ne prend pas en charge la lecture audio.
-
-    </audio>
-
-
-
+    <!-- SCRIPTS -->
     <script>
-
-        // --- 1. COVER REVEAL ---
-
         function openCard() {
-            // L'ouverture de la carte ne doit pas dépendre du lecteur audio ou des effets décoratifs.
             const cover = document.getElementById('welcome-cover');
             if (cover) cover.classList.add('opened');
             if (document.body) document.body.classList.remove('cover-active');
 
-            // Le clic de l'utilisateur autorise généralement la lecture audio.
             const music = document.getElementById('birthday-music');
-            if (music && music.paused && typeof toggleAudio === 'function') {
-                toggleAudio().catch((error) => {
-                    console.warn('Carte ouverte ; lecture audio indisponible :', error);
+            if (music && music.paused) {
+                music.play().then(() => {
+                    updateAudioUI(true);
+                    showToast("Musique activée", "Ambiance musicale lancée.");
+                }).catch(err => {
+                    console.warn("Lecture audio automatique bloquée :", err);
                 });
             }
 
-            setTimeout(() => {
-                if (typeof triggerConfetti === 'function') triggerConfetti();
-            }, 800);
+            setTimeout(() => { triggerConfetti(); }, 600);
         }
 
-        // --- 2. DEFILEMENT CARROUSEL GALERIE ---
-
-        function scrollGallery(direction) {
-
-            const carousel = document.getElementById('gallery-carousel');
-
-            const scrollAmount = 340;
-
-            carousel.scrollBy({
-
-                left: direction * scrollAmount,
-
-                behavior: 'smooth'
-
-            });
-
-        }
-
-
-
-        // Défilement automatique doux du carrousel
-
-        let autoScrollInterval = setInterval(() => {
-
-            const carousel = document.getElementById('gallery-carousel');
-
-            if (carousel) {
-
-                if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10) {
-
-                    carousel.scrollTo({ left: 0, behavior: 'smooth' });
-
-                } else {
-
-                    carousel.scrollBy({ left: 340, behavior: 'smooth' });
-
-                }
-
-            }
-
-        }, 4000);
-
-
-
-        // --- 3. LECTEUR MP3 LOCAL ---
-
-        let isPlayingAudio = false;
-
-
-
+        let isPlaying = false;
         async function toggleAudio() {
-
             const music = document.getElementById('birthday-music');
-
-            const playBtn = document.getElementById('play-pause-btn');
-
-            const playIcon = document.getElementById('play-icon');
-
-            const microEqualizer = document.getElementById('micro-equalizer');
-
-            const statusText = document.getElementById('audio-status-text');
-
-
-
-            if (!music) {
-
-                showToast('Lecteur introuvable', 'Vérifiez la balise audio dans le fichier HTML.');
-
-                return;
-
-            }
-
-
-
-            if (music.paused) {
-
-                try {
-
-                    await music.play();
-
-                    isPlayingAudio = true;
-
-                    if (playBtn) playBtn.classList.add('border-gold-300');
-
-                    if (playIcon) playIcon.className = 'fa-solid fa-pause text-base text-gold-300';
-
-                    if (microEqualizer) microEqualizer.classList.remove('paused');
-
-                    if (statusText) statusText.innerText = 'Mettre en pause la musique';
-
-                    showToast('Musique activée', 'La musique d’anniversaire est en cours.');
-
-                } catch (error) {
-
-                    isPlayingAudio = false;
-
-                    if (statusText) statusText.innerText = 'Réessayer de lancer la musique';
-
-                    showToast('Lecture impossible', 'Vérifiez que debout.mp3 existe à la racine du dépôt GitHub, au même niveau que index.html et est lisible.');
-
-                    console.error('Impossible de lire debout.mp3 :', error);
-
-                }
-
-            } else {
-
-                music.pause();
-
-                isPlayingAudio = false;
-
-                if (playBtn) playBtn.classList.remove('border-gold-300');
-
-                if (playIcon) playIcon.className = 'fa-solid fa-music text-base text-gold-400';
-
-                if (microEqualizer) microEqualizer.classList.add('paused');
-
-                if (statusText) statusText.innerText = 'Activer la musique';
-
-                showToast('Musique en pause', 'La musique est suspendue.');
-
-            }
-
-        }
-
-
-
-        // Synchronise l’interface si la lecture est interrompue par le navigateur.
-
-        document.addEventListener('DOMContentLoaded', () => {
-
-            const music = document.getElementById('birthday-music');
-
             if (!music) return;
 
-            music.addEventListener('ended', () => {
-
-                isPlayingAudio = false;
-
-            });
-
-            music.addEventListener('error', () => {
-
-                console.error('Le fichier debout.mp3 n’a pas pu être chargé. Vérifiez qu’il se trouve au même niveau que index.html et que son nom est exact.');
-
-            });
-
-        });
-
-
-
-        // --- 4. GLITTER CANVAS ---
-
-        const canvas = document.getElementById('glitterCanvas');
-        const ctx = canvas ? canvas.getContext('2d') : null;
-        let particles = [];
-
-        function resizeCanvas() {
-            if (!canvas || !ctx) return;
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
-
-        class Particle {
-            constructor() { this.reset(); }
-            reset() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 2.5 + 0.5;
-                this.speedY = Math.random() * -0.5 - 0.2;
-                this.speedX = (Math.random() - 0.5) * 0.3;
-                this.opacity = Math.random() * 0.8 + 0.2;
-                this.hue = 45 + Math.random() * 15;
-            }
-            update() {
-                this.y += this.speedY;
-                this.x += this.speedX;
-                if (this.y < 0) this.y = canvas.height;
-                if (this.x < 0 || this.x > canvas.width) this.x = Math.random() * canvas.width;
-            }
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = `hsla(${this.hue}, 80%, 60%, ${this.opacity})`;
-                ctx.fill();
+            if (music.paused) {
+                try {
+                    await music.play();
+                    updateAudioUI(true);
+                    showToast("Musique activée", "La musique d'anniversaire joue.");
+                } catch (e) {
+                    showToast("Erreur Audio", "Vérifiez que debout.mp3 est présent.");
+                }
+            } else {
+                music.pause();
+                updateAudioUI(false);
+                showToast("Musique en pause", "Lecture suspendue.");
             }
         }
 
-        if (canvas && ctx) {
-            for (let i = 0; i < 50; i++) particles.push(new Particle());
-            function animateCanvas() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                particles.forEach(p => { p.update(); p.draw(); });
-                requestAnimationFrame(animateCanvas);
+        function updateAudioUI(playing) {
+            isPlaying = playing;
+            const playIcon = document.getElementById('play-icon');
+            const microEqualizer = document.getElementById('micro-equalizer');
+            if (playing) {
+                if (playIcon) playIcon.className = "fa-solid fa-pause text-sm text-gold-300";
+                if (microEqualizer) microEqualizer.classList.remove('paused');
+            } else {
+                if (playIcon) playIcon.className = "fa-solid fa-music text-sm text-gold-400";
+                if (microEqualizer) microEqualizer.classList.add('paused');
             }
-            animateCanvas();
         }
 
-        // --- 5. CONFETTI & TOAST ---
-
-        function triggerConfetti() {
-
-            if (typeof confetti === 'function') {
-
-                confetti({
-
-                    particleCount: 110,
-
-                    spread: 85,
-
-                    origin: { y: 0.6 },
-
-                    colors: ['#D4AF37', '#FCF6BA', '#AA771C', '#FFFFFF']
-
-                });
-
+        function scrollGallery(direction) {
+            const carousel = document.getElementById('gallery-carousel');
+            if (carousel) {
+                carousel.scrollBy({ left: direction * 340, behavior: 'smooth' });
             }
-
         }
 
+        let cakeCut = false;
+        let candlesBlown = false;
 
+        function cutCake() {
+            if (cakeCut) return;
+            const knife = document.getElementById('cake-knife');
+            const topTier = document.getElementById('cake-top');
+            const bottomTier = document.getElementById('cake-bottom');
+            const btnCut = document.getElementById('btn-cut');
+            const btnBlow = document.getElementById('btn-blow');
 
-        function raiseToast() {
+            if (knife) knife.classList.add('cutting');
+
+            setTimeout(() => {
+                if (topTier) topTier.classList.add('cake-cut-left');
+                if (bottomTier) bottomTier.classList.add('cake-cut-right');
+                cakeCut = true;
+
+                if (btnCut) {
+                    btnCut.classList.remove('gold-gradient-bg', 'text-charcoal');
+                    btnCut.classList.add('bg-gray-200', 'text-gray-500');
+                    btnCut.innerText = "✓ Gâteau coupé";
+                }
+                if (btnBlow) {
+                    btnBlow.removeAttribute('disabled');
+                    btnBlow.classList.remove('bg-gray-200', 'text-gray-400', 'cursor-not-allowed');
+                    btnBlow.classList.add('gold-gradient-bg', 'text-charcoal', 'shadow-md', 'hover:brightness-105', 'cursor-pointer');
+                }
+                showToast("Découpe réussie", "Le gâteau est coupé. Vous pouvez maintenant souffler les bougies !");
+            }, 900);
+        }
+
+        function blowCandles() {
+            if (!cakeCut || candlesBlown) return;
+            candlesBlown = true;
+
+            for (let i = 1; i <= 6; i++) {
+                const flame = document.getElementById(`flame-${i}`);
+                const smoke = document.getElementById(`smoke-${i}`);
+                if (flame) flame.classList.add('extinguished');
+                if (smoke) smoke.classList.add('active');
+            }
+
+            const btnBlow = document.getElementById('btn-blow');
+            if (btnBlow) {
+                btnBlow.classList.remove('gold-gradient-bg', 'text-charcoal');
+                btnBlow.classList.add('bg-gray-200', 'text-gray-500');
+                btnBlow.innerText = "✓ Bougies soufflées";
+            }
+
+            const finalMsg = document.getElementById('final-message');
+            if (finalMsg) finalMsg.classList.remove('hidden');
 
             triggerConfetti();
-
-            showToast("🥂 Toast Levé !", "Vous avez porté un toast aux 60 ans de Michel !");
-
+            showToast("Bougies soufflées !", "Joyeux 60e anniversaire à Kanga Michel Desire !");
         }
 
+        function resetCake() {
+            cakeCut = false;
+            candlesBlown = false;
 
+            const knife = document.getElementById('cake-knife');
+            const topTier = document.getElementById('cake-top');
+            const bottomTier = document.getElementById('cake-bottom');
+            const btnCut = document.getElementById('btn-cut');
+            const btnBlow = document.getElementById('btn-blow');
+            const finalMsg = document.getElementById('final-message');
 
-        function speakWish(personName, text) {
+            if (knife) knife.classList.remove('cutting');
+            if (topTier) topTier.classList.remove('cake-cut-left');
+            if (bottomTier) bottomTier.classList.remove('cake-cut-right');
 
-            if ('speechSynthesis' in window) {
-
-                window.speechSynthesis.cancel();
-
-                const utterance = new SpeechSynthesisUtterance(text);
-
-                utterance.lang = 'fr-FR';
-
-                utterance.rate = 0.95;
-
-                utterance.pitch = 1.0;
-
-                window.speechSynthesis.speak(utterance);
-
-                showToast(`Vœu de ${personName}`, "Lecture audio en cours...");
-
-            } else {
-
-                showToast(`Vœu de ${personName}`, "Synthèse vocale non disponible.");
-
+            for (let i = 1; i <= 6; i++) {
+                const flame = document.getElementById(`flame-${i}`);
+                const smoke = document.getElementById(`smoke-${i}`);
+                if (flame) flame.classList.remove('extinguished');
+                if (smoke) smoke.classList.remove('active');
             }
 
+            if (btnCut) {
+                btnCut.classList.add('gold-gradient-bg', 'text-charcoal');
+                btnCut.classList.remove('bg-gray-200', 'text-gray-500');
+                btnCut.innerText = "Étape 1 — Couper le gâteau";
+            }
+            if (btnBlow) {
+                btnBlow.setAttribute('disabled', 'true');
+                btnBlow.classList.add('bg-gray-200', 'text-gray-400', 'cursor-not-allowed');
+                btnBlow.classList.remove('gold-gradient-bg', 'text-charcoal', 'shadow-md', 'hover:brightness-105', 'cursor-pointer');
+                btnBlow.innerText = "Étape 2 — Souffler les bougies";
+            }
+            if (finalMsg) finalMsg.classList.add('hidden');
+
+            showToast("Réinitialisation", "Le gâteau est restauré.");
         }
 
+        function triggerConfetti() {
+            if (typeof confetti === 'function') {
+                confetti({
+                    particleCount: 120,
+                    spread: 80,
+                    origin: { y: 0.6 },
+                    colors: ['#C9A64B', '#8A6848', '#F7E79B', '#FFFFFF']
+                });
+            }
+        }
 
+        function speakWish(personName, text) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'fr-FR';
+                utterance.rate = 0.95;
+                window.speechSynthesis.speak(utterance);
+                showToast(`Vœu de ${personName}`, "Lecture audio en cours...");
+            } else {
+                showToast(`Vœu de ${personName}`, "Synthèse vocale non supportée.");
+            }
+        }
 
         function showToast(title, msg) {
             const toast = document.getElementById('toast');
@@ -1846,8 +1062,25 @@
             }, 3500);
         }
 
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.site-nav-link');
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.scrollY >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('is-active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('is-active');
+                }
+            });
+        });
     </script>
-
 </body>
-
 </html>
